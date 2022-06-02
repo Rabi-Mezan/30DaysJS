@@ -15,22 +15,25 @@ body {
 }
 
 .keys {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.keys .key {
+.key {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 8rem;
+    transition: all 0.5s linear;
     height: 6rem;
     background-color: rgba(19, 17, 17, 0.743);
     gap: 10px;
     color: white;
-    margin: 0px 10px;
+    margin: 8px 10px;
     font-size: 14px;
     border-radius: 5px;
+    border: 1px solid black;
 }
 
 .key>kbd {
@@ -38,7 +41,12 @@ body {
     font-weight: 700;
 }
 
+.key span {
+    color: rgb(249, 141, 40);
+}
+
 .playing {
-    border: 1px solid rgb(238, 199, 41);
-    transform: scale(1.5);
+    border: 2px solid rgb(249, 141, 40);
+    transform: scale(1.1);
+    background-color: black;
 }
