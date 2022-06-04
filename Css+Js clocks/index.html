@@ -57,9 +57,15 @@
             position: absolute;
             top: 50%;
             left: 10%;
-            transition: all 0.5s;
+            /* transition: all 0.5s; */
             transform: rotate(90deg);
             transform-origin: 100%;
+        }
+
+        .hand-hour {
+            /* background-color: black; */
+            height: 10px;
+
         }
 
 
@@ -103,7 +109,8 @@
             const hours = now.getHours();
             // console.log(seconds);
             const secondsInDegree = ((seconds / 60) * 360) + 90;
-            const minutesInDegree = ((minutes / 60) * 360) + 90;
+            // console.log(secondsInDegree);
+            const minutesInDegree = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90;
             const hoursInDegree = ((hours / 12) * 360) + 90;
 
             handSecond.style.transform = `rotate(${secondsInDegree}deg)`
