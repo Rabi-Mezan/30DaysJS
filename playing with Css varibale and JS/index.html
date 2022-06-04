@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playing with Css varibales and JS</title>
+    <style>
+        :root {
+            --color: #48d67a;
+            --spacing: 15px;
+            --blur: 10px
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+            margin-top: 5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--color);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            word-wrap: wrap;
+        }
+
+        img {
+            height: 350px;
+            margin: 4rem 0;
+            padding: var(--spacing);
+            border: 2px solid black;
+            background-color: var(--color);
+            filter: blur(var(--blur));
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+
+
+        label[for="spacing"],
+        label[for="blur"],
+        label[for="base"] {
+            font-size: 1.5rem;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <h1>playing with Css varibale and JS</h1>
+
+    <div class="controls">
+
+        <label for="spacing">Space : </label>
+        <input type="range" name="spacing" id="" min="10" max="200" value="10" data-sizing="px">
+
+        <label for="blur">Blur : </label>
+        <input type="range" name="blur" id="" min="0" max="25" value="10" data-sizing="px">
+
+        <label for="color">Color : </label>
+        <input type="color" name="color" value="#48d67a">
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1653629154029-265d18f0e1f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        alt="">
+
+
+    <script>
+        const inputs = document.querySelectorAll('.controls input')
+
+
+        function handleChange() {
+
+            const suffix = this.dataset.sizing || " ";
+            window.document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix)
+
+        }
+
+        inputs.forEach(input => input.addEventListener('change', handleChange));
+        inputs.forEach(input => input.addEventListener('mousemove', handleChange));
+    </script>
+
+</body>
+
+</html>
